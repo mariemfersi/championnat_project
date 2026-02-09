@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Setter
@@ -19,6 +20,12 @@ public class Sponsor {
     String pays;
     Float budgetAnnuel;
     Boolean bloquerContrat;
+    Boolean archived;
+    LocalDate dateCreation;
+
+    LocalDate dateDerniereModification;
+
+
 
     @OneToMany(mappedBy = "sponsor")
     private List<Contrat> contrats;
@@ -30,7 +37,6 @@ public class Sponsor {
         this.budgetAnnuel = budgetAnnuel;
         this.bloquerContrat = bloquerContrat;
     }
-
     public Sponsor() {
     }
 }
